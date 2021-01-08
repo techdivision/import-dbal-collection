@@ -14,14 +14,16 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Actions;
+namespace TechDivision\Import\Dbal\Collection\Actions;
 
 use League\Event\EmitterInterface;
+use TechDivision\Import\Dbal\Actions\ActionInterface;
 use TechDivision\Import\Cache\Utils\CacheKeysInterface;
+use TechDivision\Import\Dbal\Actions\CachedActionInterface;
 
 /**
  * An generic action implementation that extends CRUD and event handling with cache functionality.
@@ -29,7 +31,7 @@ use TechDivision\Import\Cache\Utils\CacheKeysInterface;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 class GenericCachedEventAwareAction extends GenericEventAwareAction implements CachedActionInterface

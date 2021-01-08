@@ -14,15 +14,17 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Repositories;
+namespace TechDivision\Import\Dbal\Collection\Repositories;
 
 use TechDivision\Import\Dbal\Connection\ConnectionInterface;
 use TechDivision\Import\Dbal\Repositories\Finders\FinderInterface;
 use TechDivision\Import\Dbal\Repositories\Finders\FinderFactoryInterface;
+use TechDivision\Import\Dbal\Repositories\FinderAwareRepositoryInterface;
+use TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface;
 
 /**
  * Abstract repository implementation with finder support.
@@ -30,7 +32,7 @@ use TechDivision\Import\Dbal\Repositories\Finders\FinderFactoryInterface;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 abstract class AbstractFinderRepository extends AbstractRepository implements FinderAwareRepositoryInterface

@@ -14,11 +14,13 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Actions;
+namespace TechDivision\Import\Dbal\Collection\Actions;
+
+use TechDivision\Import\Dbal\Actions\ActionInterface;
 
 /**
  * An generic action implementation that provides CRUD functionality.
@@ -26,7 +28,7 @@ namespace TechDivision\Import\Dbal\Actions;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 class GenericAction extends AbstractAction implements ActionInterface

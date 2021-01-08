@@ -14,13 +14,13 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Connection;
+namespace TechDivision\Import\Dbal\Collection\Connection;
 
-use TechDivision\Import\Configuration\ConfigurationInterface;
+use TechDivision\Import\Dbal\Configuration\ConfigurationInterface;
 
 /**
  * The connection factory implementation.
@@ -28,7 +28,7 @@ use TechDivision\Import\Configuration\ConfigurationInterface;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 class ConnectionFactory
@@ -39,7 +39,7 @@ class ConnectionFactory
      *
      * @param \TechDivision\Import\Dbal\Configuration\ConfigurationInterface $configuration The configuration with the data to create the connection with
      *
-     * @return \TechDivision\Import\Connection\PDOConnectionWrapper The initialized connection
+     * @return \TechDivision\Import\Dbal\Collection\Connection\PDOConnectionWrapper The initialized connection
      */
     public static function createConnection(ConfigurationInterface $configuration)
     {

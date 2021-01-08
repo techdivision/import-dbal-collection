@@ -14,11 +14,11 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Actions\Processors;
+namespace TechDivision\Import\Dbal\Collection\Actions\Processors;
 
 /**
  * A processor implementation providing black hole functionality, which means
@@ -27,7 +27,7 @@ namespace TechDivision\Import\Dbal\Actions\Processors;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 class GenericIdentifierProcessor extends GenericProcessor

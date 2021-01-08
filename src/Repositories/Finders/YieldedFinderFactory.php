@@ -14,13 +14,14 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Repositories\Finders;
+namespace TechDivision\Import\Dbal\Collection\Repositories\Finders;
 
 use TechDivision\Import\Dbal\Repositories\FinderAwareRepositoryInterface;
+use TechDivision\Import\Dbal\Repositories\Finders\FinderFactoryInterface;
 
 /**
  * Factory for yielded finder instances.
@@ -28,7 +29,7 @@ use TechDivision\Import\Dbal\Repositories\FinderAwareRepositoryInterface;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 class YieldedFinderFactory implements FinderFactoryInterface

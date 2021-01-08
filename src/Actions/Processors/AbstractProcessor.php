@@ -14,13 +14,14 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Dbal\Actions\Processors;
+namespace TechDivision\Import\Dbal\Collection\Actions\Processors;
 
 use TechDivision\Import\Dbal\Connection\ConnectionInterface;
+use TechDivision\Import\Dbal\Actions\Processors\ProcessorInterface;
 use TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface;
 
 /**
@@ -29,7 +30,7 @@ use TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-dbal
+ * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
 abstract class AbstractProcessor implements ProcessorInterface
@@ -45,15 +46,15 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * The respository instance with the SQL statements to use.
      *
-     * @var \TechDivision\Import\Repositories\SqlStatementRepositoryInterface
+     * @var \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface
      */
     protected $sqlStatementRepository;
 
     /**
      * Initialize the processor with the passed connection and utility class name.
      * .
-     * @param \TechDivision\Import\Connection\ConnectionInterface               $connection             The connection instance
-     * @param \TechDivision\Import\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
+     * @param \TechDivision\Import\Dbal\Connection\ConnectionInterface               $connection             The connection instance
+     * @param \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
      */
     public function __construct(
         ConnectionInterface $connection,
@@ -71,7 +72,7 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * Set's the connection to use.
      * .
-     * @param \TechDivision\Import\Connection\ConnectionInterface $connection The connection instance
+     * @param \TechDivision\Import\Dbal\Connection\ConnectionInterface $connection The connection instance
      *
      * @return void
      */
@@ -83,7 +84,7 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * Return's the connection to use.
      *
-     * @return \TechDivision\Import\Connection\ConnectionInterface The connection instance
+     * @return \TechDivision\Import\Dbal\Connection\ConnectionInterface The connection instance
      */
     public function getConnection()
     {
@@ -93,7 +94,7 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * Set's the repository instance with the SQL statements to use.
      *
-     * @param \TechDivision\Import\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
+     * @param \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
      *
      * @return void
      */
@@ -105,7 +106,7 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * Return's the repository instance with the SQL statements to use.
      *
-     * @return \TechDivision\Import\Repositories\SqlStatementRepositoryInterface The repository instance
+     * @return \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface The repository instance
      */
     public function getSqlStatementRepository()
     {
