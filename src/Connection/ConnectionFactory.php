@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Dbal\Connection\ConnectionFactory
+ * TechDivision\Import\Dbal\Collection\Connection\ConnectionFactory
  *
  * NOTICE OF LICENSE
  *
