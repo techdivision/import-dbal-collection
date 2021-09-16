@@ -1,7 +1,7 @@
 {
     "name": "techdivision/import-dbal-collection",
     "description": "Pacemaker library providing a hyperfast Magento 2 import DBAL functionality",
-    "license": "OSL-3.0",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {

@@ -3,17 +3,11 @@
 /**
 * TechDivision\Import\Collection\Dbal\Collection\Utils\ColumnSanitizerTest
  *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- *
  * PHP version 7
  *
  * @author    Team CSI <csi-kolbermoor@techdivision.com>
  * @copyright 2020 TechDivision GmbH <info@techdivision.com>
- * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @license   https://opensource.org/licenses/MIT
  * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
@@ -27,7 +21,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author    Team CSI <csi-kolbermoor@techdivision.com>
  * @copyright 2020 TechDivision GmbH <info@techdivision.com>
- * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @license   https://opensource.org/licenses/MIT
  * @link      https://github.com/techdivision/import-dbal-collection
  * @link      http://www.techdivision.com
  */
