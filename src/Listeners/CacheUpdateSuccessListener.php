@@ -3,13 +3,15 @@
 /**
  * TechDivision\Import\Dbal\Collection\Listeners\CacheUpdateListener
  *
- * PHP version 7
+ * Copyright (c) 2021 TechDivision GmbH.
  *
- * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2021 TechDivision GmbH <info@techdivision.com>
- * @license   https://opensource.org/licenses/MIT
- * @link      https://github.com/techdivision/import-dbal-collection
- * @link      http://www.techdivision.com
+ * All rights reserved.
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany.
+ * For more information see http://www.techdivision.com/.
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com.
  */
 
 namespace TechDivision\Import\Dbal\Collection\Listeners;
@@ -18,23 +20,22 @@ use League\Event\EventInterface;
 use League\Event\AbstractListener;
 use TechDivision\Import\Cache\CacheAdapterInterface;
 use TechDivision\Import\Dbal\Actions\CachedActionInterface;
+use TechDivision\Import\Dbal\Utils\EntityStatus;
 
 /**
  * A listener implementation that updates the cache after a row has been updated.
  *
- * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2021 TechDivision GmbH <info@techdivision.com>
- * @license   https://opensource.org/licenses/MIT
- * @link      https://github.com/techdivision/import-dbal-collection
- * @link      http://www.techdivision.com
+ * @link      http://www.techdivision.com/
+ * @author    Martin Eisenführer <m.eisenfuehrer@techdivision.com>
+ * @copyright Copyright (c) 2021 TechDivision GmbH (http://www.techdivision.com)
  */
-class CacheUpdateListener extends AbstractListener
+class CacheUpdateSuccessListener extends AbstractListener
 {
 
     /**
      * The cache adapter instance.
      *
-     * @var \TechDivision\Import\\Cache\CacheAdapterInterface
+     * @var \TechDivision\Import\Cache\CacheAdapterInterface
      */
     protected $cacheAdapter;
 
@@ -51,9 +52,9 @@ class CacheUpdateListener extends AbstractListener
     /**
      * Handle the event.
      *
-     * @param \League\Event\EventInterface                            $event  The event that triggered the listener
+     * @param \League\Event\EventInterface                               $event  The event that triggered the listener
      * @param \TechDivision\Import\Dbal\Actions\CachedActionInterface $action The action instance that triggered the event
-     * @param array                                                   $row    The row to be cached
+     * @param array                                                      $row    The row to be cached
      *
      * @return void
      */
@@ -61,8 +62,9 @@ class CacheUpdateListener extends AbstractListener
     {
 
         // remove an existing product varchar attribute from the cache to allow reloading it
-        if ($this->cacheAdapter->isCached($uniqueKey = array($action->getCacheKey() => $row[$action->getPrimaryKeyMemberName()]))) {
-            $this->cacheAdapter->removeCache($uniqueKey);
+        if (!$this->cacheAdapter->isCached($uniqueKey = array($action->getCacheKey() => $row[$action->getPrimaryKeyMemberName()]))) {
+            unset($row[EntityStatus::MEMBER_NAME]);
+            $this->cacheAdapter->toCache($uniqueKey, $row);
         }
     }
 }

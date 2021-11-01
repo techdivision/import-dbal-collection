@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Dbal\Cache\Actions\GenericCachedEventAwareIdentifierAction
+ * TechDivision\Import\Dbal\Collection\Actions\GenericCachedEventAwareIdentifierAction
  *
  * PHP version 7
  *

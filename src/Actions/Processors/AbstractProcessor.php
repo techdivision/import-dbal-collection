@@ -33,7 +33,7 @@ abstract class AbstractProcessor implements ProcessorInterface
     /**
      * The connection instance.
      * .
-     * @var \TechDivision\Import\Connection\ConnectionInterface;
+     * @var \TechDivision\Import\Dbal\Connection\ConnectionInterface;
      */
     protected $connection;
 
