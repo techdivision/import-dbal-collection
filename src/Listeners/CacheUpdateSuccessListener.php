@@ -52,9 +52,9 @@ class CacheUpdateSuccessListener extends AbstractListener
     /**
      * Handle the event.
      *
-     * @param \League\Event\EventInterface                               $event  The event that triggered the listener
+     * @param \League\Event\EventInterface                            $event  The event that triggered the listener
      * @param \TechDivision\Import\Dbal\Actions\CachedActionInterface $action The action instance that triggered the event
-     * @param array                                                      $row    The row to be cached
+     * @param array                                                   $row    The row to be cached
      *
      * @return void
      */
