@@ -109,7 +109,7 @@ class CoreConfigDataFinder implements FinderInterface
         if (!isset($apiData['magento-domain']) || empty($apiData['magento-domain'])) {
             return [];
         }
-        $path = sprintf("%s/%s", $apiData['magento-domain'], self::REST_API_URL);
+        $path = sprintf("%s/%s", rtrim('/', $apiData['magento-domain']), static::REST_API_URL);
 
         try {
             $client = new \GuzzleHttp\Client();
