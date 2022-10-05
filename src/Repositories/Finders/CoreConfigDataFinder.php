@@ -122,10 +122,10 @@ class CoreConfigDataFinder implements FinderInterface
                 return [];
             }
         } catch (\Exception $e) {
-            $this->getSystemLogger()->debug(
+            $this->getSystemLogger()->warning(
                 sprintf(
-                    'Something wrong with Call Magento Api data %s The error Message %s',
-                    $jsonData,
+                    'Something wrong with Call Magento Api on %s - Error message: %s',
+                    $path,
                     $e->getMessage()
                 )
             );
