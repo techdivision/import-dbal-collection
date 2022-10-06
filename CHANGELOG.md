@@ -1,4 +1,14 @@
-# Version 1.0.1
+# Version 1.1.1
+
+## Bugfixes
+
+* Fix API call with invalid URL
+
+## Features
+
+* none
+
+# Version 1.1.0
 
 ## Bugfixes
 
