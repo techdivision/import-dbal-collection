@@ -1,3 +1,13 @@
+# Version 1.1.2
+
+## Bugfixes
+
+* Fix PHP 8.1 deprecation warnings
+
+## Features
+
+* none
+
 # Version 1.1.1
 
 ## Bugfixes

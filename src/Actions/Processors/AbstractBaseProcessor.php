@@ -231,14 +231,14 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
 
             // replace the placeholders with the values
             foreach ($row as $key => $value) {
-                $sql = str_replace(sprintf(':%s', $key), $value, $sql);
+                $sql = str_replace(sprintf(':%s', $key), $value ? $value : '', $sql);
             }
 
             // prepare the error message itself
             $message = sprintf('%s when executing SQL "%s"', $pdoe->getMessage(), preg_replace('/\r\n\s\s+/', ' ', $sql));
 
             // re-throw the exception with a more detailed error message
-            throw new \PDOException($message, null, $pdoe);
+            throw new \PDOException($message, $pdoe->getCode());
         }
     }
 
