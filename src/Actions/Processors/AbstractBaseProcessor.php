@@ -238,7 +238,7 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
             $message = sprintf('%s when executing SQL "%s"', $pdoe->getMessage(), preg_replace('/\r\n\s\s+/', ' ', $sql));
 
             // re-throw the exception with a more detailed error message
-            throw new \PDOException($message, $pdoe->getCode());
+            throw new \PDOException($message);
         }
     }
 
