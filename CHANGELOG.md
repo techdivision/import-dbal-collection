@@ -1,3 +1,13 @@
+# Version 1.1.3
+
+## Bugfixes
+
+* Fix PHP 8.x PDOException error code crash
+
+## Features
+
+* none
+
 # Version 1.1.2
 
 ## Bugfixes
