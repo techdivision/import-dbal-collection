@@ -1,3 +1,13 @@
+# Version 1.1.4
+
+## Bugfixes
+
+* Better error message on PDOException
+
+## Features
+
+* none
+
 # Version 1.1.3
 
 ## Bugfixes

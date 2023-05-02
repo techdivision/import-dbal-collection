@@ -231,7 +231,13 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
 
             // replace the placeholders with the values
             foreach ($row as $key => $value) {
-                $sql = str_replace(sprintf(':%s', $key), $value ? $value : '', $sql);
+                // Set null and empty string as string for better readability
+                if ($value === null) {
+                    $value = "null";
+                } elseif ($value === "") {
+                    $value = "''";
+                }
+                $sql = str_replace(sprintf(':%s', $key), $value, $sql);
             }
 
             // prepare the error message itself
