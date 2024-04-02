@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection PhpMissingReturnTypeInspection */
+
 /**
  * TechDivision\Import\Dbal\Connection\PDOConnectionWrapper
  *
@@ -14,10 +16,13 @@
 
 namespace TechDivision\Import\Dbal\Collection\Connection;
 
+use PDO;
+use PDOException;
+use PDOStatement;
 use TechDivision\Import\Dbal\Connection\ConnectionInterface;
 
 /**
- * A wrapper for a \PDO connection instance.
+ * A wrapper for a PDO connection instance.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2021 TechDivision GmbH <info@techdivision.com>
@@ -29,20 +34,41 @@ class PDOConnectionWrapper implements ConnectionInterface
 {
 
     /**
-     * The \PDO connection that has to be wrapped.
+     * The PDO connection that has to be wrapped.
      *
-     * @var \PDO
+     * @var PDO
      */
     protected $connection;
 
     /**
      * Initializes the wrapper with the passed PDO connection.
      *
-     * @param \PDO $connection The PDO connection to wrap
+     * @param PDO $connection The PDO connection to wrap
      */
-    public function __construct(\PDO $connection)
+    public function __construct(PDO $connection)
+    {
+        $this->setConnection($connection);
+    }
+
+    /**
+     * Set connection
+     *
+     * @param PDO $connection
+     * @return void
+     */
+    protected function setConnection(PDO $connection)
     {
         $this->connection = $connection;
+    }
+
+    /**
+     * Get connection
+     *
+     * @return PDO
+     */
+    protected function getConnection()
+    {
+        return $this->getConnection();
     }
 
     /**
@@ -54,7 +80,7 @@ class PDOConnectionWrapper implements ConnectionInterface
      */
     public function beginTransaction()
     {
-        return $this->connection->beginTransaction();
+        return $this->getConnection()->beginTransaction();
     }
 
     /**
@@ -62,23 +88,23 @@ class PDOConnectionWrapper implements ConnectionInterface
      * to beginTransaction() starts a new transaction.
      *
      * @return void
-     * @throws \PDOException Throws a PDOException if there is no active transaction.
+     * @throws PDOException Throws a PDOException if there is no active transaction.
      * @link http://php.net/manual/en/pdo.commit.php
      */
     public function commit()
     {
-        $this->connection->commit();
+        $this->getConnection()->commit();
     }
 
     /**
      * Rolls back the current transaction, as initiated by beginTransaction().
      *
      * @return boolean Returns TRUE on success or FALSE on failure
-     * @throws \PDOException Throws a PDOException if there is no active transaction
+     * @throws PDOException Throws a PDOException if there is no active transaction
      */
     public function rollBack()
     {
-        return $this->connection->rollBack();
+        return $this->getConnection()->rollBack();
     }
 
     /**
@@ -89,7 +115,7 @@ class PDOConnectionWrapper implements ConnectionInterface
      */
     public function errorCode()
     {
-        return $this->connection->errorCode();
+        return $this->getConnection()->errorCode();
     }
 
     /**
@@ -100,7 +126,7 @@ class PDOConnectionWrapper implements ConnectionInterface
      */
     public function errorInfo()
     {
-        return $this->connection->errorInfo();
+        return $this->getConnection()->errorInfo();
     }
 
     /**
@@ -108,27 +134,27 @@ class PDOConnectionWrapper implements ConnectionInterface
      *
      * @param string $statement The SQL statement to prepare and execute
      *
-     * @return \PDOStatement|boolean Returns a \PDOStatement object, or FALSE on failure
+     * @return PDOStatement|boolean Returns a PDOStatement object, or FALSE on failure
      * @link http://php.net/manual/en/pdo.query.php
      */
     public function query($statement)
     {
-        return call_user_func_array(array($this->connection, 'query'), func_get_args());
+        return call_user_func_array([$this->getConnection(), 'query'], func_get_args());
     }
 
     /**
      * Prepares a statement for execution and returns a statement object.
      *
-     * @param string $statement     This must be a valid SQL statement template for the target database server
-     * @param array  $driverOptions This array holds one or more key=>value pairs to set attribute values for the \PDOStatement object that this method returns
+     * @param string $statement This must be a valid SQL statement template for the target database server
+     * @param array $driverOptions This array holds one or more key=>value pairs to set attribute values for the PDOStatement object that this method returns
      *
-     * @return \PDOStatement If the database server successfully prepares the statement, this method returns a \PDOStatement object
-     * @throws \PDOException Throws a PDOException if the database server cannot successfully prepare the statement
+     * @return PDOStatement If the database server successfully prepares the statement, this method returns a PDOStatement object
+     * @throws PDOException Throws a PDOException if the database server cannot successfully prepare the statement
      * @link http://php.net/manual/en/pdo.prepare.php
      */
-    public function prepare($statement, array $driverOptions = array())
+    public function prepare($statement, array $driverOptions = [])
     {
-        return $this->connection->prepare($statement, $driverOptions);
+        return $this->getConnection()->prepare($statement, $driverOptions);
     }
 
     /**
@@ -141,7 +167,7 @@ class PDOConnectionWrapper implements ConnectionInterface
      */
     public function exec($statement)
     {
-        return $this->connection->exec($statement);
+        return $this->getConnection()->exec($statement);
     }
 
     /**
@@ -154,20 +180,20 @@ class PDOConnectionWrapper implements ConnectionInterface
      */
     public function lastInsertId($name = null)
     {
-        return $this->connection->lastInsertId($name);
+        return $this->getConnection()->lastInsertId($name);
     }
 
     /**
      * Quotes a string for use in a query.
      *
-     * @param string  $string        The string to be quoted
+     * @param string $string The string to be quoted
      * @param integer $parameterType Provides a data type hint for drivers that have alternate quoting styles
      *
      * @return string|boolean Returns a quoted string that is theoretically safe to pass into an SQL statement or FALSE if the driver does not support quoting in this way
      * @link http://php.net/manual/en/pdo.quote.php
      */
-    public function quote($string, $parameterType = \PDO::PARAM_STR)
+    public function quote($string, $parameterType = PDO::PARAM_STR)
     {
-        return $this->connection->quote($string, $parameterType);
+        return $this->getConnection()->quote($string, $parameterType);
     }
 }
