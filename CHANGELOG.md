@@ -1,3 +1,13 @@
+# Version 1.2.0
+
+## Bugfixes
+
+* Add method removeCache to remove product entity from cache to update the product_custom_option
+
+## Features
+
+* none
+
 # Version 1.1.4
 
 ## Bugfixes

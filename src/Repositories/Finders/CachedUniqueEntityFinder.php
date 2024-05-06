@@ -123,4 +123,24 @@ class CachedUniqueEntityFinder implements EntityFinderInterface
         // finally, return it
         return $entity;
     }
+
+    /**
+     * Remove the item with the passed key and all its references from the cache.
+     * to get the corrctly entity after update custom_option
+     *
+     * @param array $params The finder params
+     *
+     * @return array The finder result
+     */
+    public function removeCache(array $params = array())
+    {
+
+        // prepare the cache key
+        $cacheKey = $this->cacheAdapter->cacheKey(array($this->getKey() => $params), false);
+
+        // query whether or not the item has already been cached
+        if ($this->cacheAdapter->isCached($cacheKey)) {
+            return $this->cacheAdapter->removeCache($cacheKey);
+        }
+    }
 }
