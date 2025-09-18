@@ -14,6 +14,7 @@
 
 namespace TechDivision\Import\Dbal\Collection\Actions\Processors;
 
+use ArrayObject;
 use TechDivision\Import\Dbal\Utils\EntityStatus;
 use TechDivision\Import\Dbal\Connection\ConnectionInterface;
 use TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface;
@@ -48,7 +49,7 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
     /**
      * The array holding row data sanitizer.
      *
-     * @var \ArrayObject
+     * @var ArrayObject
      */
     protected $sanitizers;
 
@@ -62,21 +63,22 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
     /**
      * Initialize the processor with the passed connection and utility class name, as well as optional sanitizers.
      * .
+     *
      * @param \TechDivision\Import\Dbal\Connection\ConnectionInterface               $connection             The connection instance
      * @param \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
-     * @param \ArrayObject                                                           $sanitizers             The array with the sanitizer instances
+     * @param ArrayObject|null $sanitizers             The array with the sanitizer instances
      */
     public function __construct(
         ConnectionInterface $connection,
         SqlStatementRepositoryInterface $sqlStatementRepository,
-        \ArrayObject $sanitizers = null
+        ?ArrayObject $sanitizers = null
     ) {
 
         // pass the connection and the SQL statement repository to the parent class
         parent::__construct($connection, $sqlStatementRepository);
 
         // set the sanititzes, if available
-        $this->setSanitizers($sanitizers ?? new \ArrayObject());
+        $this->setSanitizers($sanitizers ?? new ArrayObject());
     }
 
     /**
@@ -125,9 +127,9 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
     /**
      * Gets sanitizers list.
      *
-     * @return \ArrayObject The sanitizers
+     * @return ArrayObject The sanitizers
      */
-    public function getSanitizers(): \ArrayObject
+    public function getSanitizers(): ArrayObject
     {
         return $this->sanitizers;
     }
@@ -135,11 +137,11 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
     /**
      * Sets sanitizers list.
      *
-     * @param \ArrayObject $sanitizers The sanitizers
+     * @param ArrayObject $sanitizers The sanitizers
      *
      * @return void
      */
-    public function setSanitizers(\ArrayObject $sanitizers): void
+    public function setSanitizers(ArrayObject $sanitizers): void
     {
         $this->sanitizers = $sanitizers;
     }

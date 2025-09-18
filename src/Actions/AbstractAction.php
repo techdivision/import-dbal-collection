@@ -69,9 +69,9 @@ abstract class AbstractAction implements ActionInterface, ProcessorAwareActionIn
      * @param string|null                                                          $primaryKeyMemberName The primary key member name
      */
     public function __construct(
-        ProcessorInterface $createProcessor = null,
-        ProcessorInterface $updateProcessor = null,
-        ProcessorInterface $deleteProcessor = null,
+        ?ProcessorInterface $createProcessor = null,
+        ?ProcessorInterface $updateProcessor = null,
+        ?ProcessorInterface $deleteProcessor = null,
         $primaryKeyMemberName = null
     ) {
 

@@ -40,9 +40,9 @@ class GenericDynamicIdentifierAction extends GenericIdentifierAction
      */
     public function __construct(
         PrimaryKeyUtilInterface $primaryKeyUtil,
-        ProcessorInterface $createProcessor = null,
-        ProcessorInterface $updateProcessor = null,
-        ProcessorInterface $deleteProcessor = null
+        ?ProcessorInterface $createProcessor = null,
+        ?ProcessorInterface $updateProcessor = null,
+        ?ProcessorInterface $deleteProcessor = null
     ) {
 
         // pass the processor instances and the primary key name to the parent constructor
