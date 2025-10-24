@@ -53,12 +53,12 @@ class CacheUpdateSuccessListener extends AbstractListener
      * Handle the event.
      *
      * @param \League\Event\EventInterface                            $event  The event that triggered the listener
-     * @param \TechDivision\Import\Dbal\Actions\CachedActionInterface $action The action instance that triggered the event
+     * @param \TechDivision\Import\Dbal\Actions\CachedActionInterface|null $action The action instance that triggered the event
      * @param array                                                   $row    The row to be cached
      *
      * @return void
      */
-    public function handle(EventInterface $event, CachedActionInterface $action = null, array $row = array())
+    public function handle(EventInterface $event, ?CachedActionInterface $action = null, array $row = array())
     {
 
         // remove an existing product varchar attribute from the cache to allow reloading it

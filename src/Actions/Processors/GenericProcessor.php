@@ -40,15 +40,16 @@ class GenericProcessor extends AbstractBaseProcessor
     /**
      * Initialize the processor with the passed connection and utility class name, as well as optional sanitizers.
      * .
+     *
      * @param \TechDivision\Import\Dbal\Connection\ConnectionInterface               $connection             The connection instance
      * @param \TechDivision\Import\Dbal\Repositories\SqlStatementRepositoryInterface $sqlStatementRepository The repository instance
-     * @param \ArrayObject                                                           $sanitizers             The array with the sanitizer instances
+     * @param \ArrayObject|null $sanitizers             The array with the sanitizer instances
      * @param array                                                                  $statementKeys          The array with the statment keys
      */
     public function __construct(
         ConnectionInterface $connection,
         SqlStatementRepositoryInterface $sqlStatementRepository,
-        \ArrayObject $sanitizers = null,
+        ?\ArrayObject $sanitizers = null,
         array $statementKeys = array()
     ) {
 
