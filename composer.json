@@ -5,7 +5,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
         "league/event": "~2.0",
         "techdivision/import-dbal": "^2.0",
         "techdivision/import-cache": "^2.0"
