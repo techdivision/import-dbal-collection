@@ -7,8 +7,8 @@
     "require": {
         "php": "^8.3",
         "league/event": "~2.0",
-        "techdivision/import-dbal": "^2.0",
-        "techdivision/import-cache": "^2.0"
+        "techdivision/import-dbal": "^2.1",
+        "techdivision/import-cache": "^2.1"
     },
     "require-dev": {
         "doctrine/dbal": "^4.0.4",
