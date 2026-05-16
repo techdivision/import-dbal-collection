@@ -116,7 +116,7 @@ abstract class AbstractBaseProcessor extends AbstractProcessor
     {
 
         // try to load the prepared statement, or use the default one
-        if (isset($this->preparedStatements[$name])) {
+        if ($name !== null && isset($this->preparedStatements[$name])) {
             return $this->preparedStatements[$name];
         }
 
